@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Image Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enhanced Image Results</h1>
+
+        <!-- Display Original Image -->
+        <h2>Original Image</h2>
+        <img src="{{ original_image }}" alt="Original Image" class="image">
+
+        <!-- Display Enhanced Images -->
+        <div class="enhanced-images">
+            <h2>Enhanced Images</h2>
+            <div class="enhanced-container">
+                <div class="enhanced-item">
+                    <h3>Histogram Equalization</h3>
+                    <img src="{{ url_for('static', filename=enhanced_images['hist_eq_image'].split('static/')[1]) }}" alt="Histogram Equalization" class="image">
+                </div>
+                <div class="enhanced-item">
+                    <h3>CLAHE</h3>
+                    <img src="{{ url_for('static', filename=enhanced_images['clahe_image'].split('static/')[1]) }}" alt="CLAHE" class="image">
+                </div>
+                <div class="enhanced-item">
+                    <h3>Unsharp Masking</h3>
+                    <img src="{{ url_for('static', filename=enhanced_images['unsharp_image'].split('static/')[1]) }}" alt="Unsharp Masking" class="image">
+                </div>
+                <div class="enhanced-item">
+                    <h3>Noise Reduction</h3>
+                    <img src="{{ url_for('static', filename=enhanced_images['denoised_image'].split('static/')[1]) }}" alt="Noise Reduction" class="image">
+                </div>
+                <div class="enhanced-item">
+                    <h3>Edge Detection</h3>
+                    <img src="{{ url_for('static', filename=enhanced_images['edges_image'].split('static/')[1]) }}" alt="Edge Detection" class="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
